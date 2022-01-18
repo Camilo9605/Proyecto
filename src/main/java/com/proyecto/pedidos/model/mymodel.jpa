@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings ptype="MONOLITH" ppkg="com.proyecto.pedidos" epkg="entity" v="5.4.3" rws="_16382210788802" Pws="_16382210788802" cws="_16382210788802" persistenceUnitName="DEFAULT_PU" sm="false" xs="false" id="_16382210788801" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <entity compositePrimaryKeyClass="ClientePK" abs="false" class="Cliente" v="true" jbn="false" xre="false" m="false" rootElement="_16382210788801" id="_16382211071363">
+        <ath>CristianFonseca</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="nombre" id="_163822116605815">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="int" v="true" xvt="" name="identificacion" id="_163822117081716">
+                <xwm/>
+                <xm/>
+            </basic>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_16382211072844">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="AUTO"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Cliente.findAll">
+            <query>Select e from Cliente e</query>
+        </nq>
+        <nq e="false" name="Cliente.findByNombre">
+            <query>Select c from Cliente c where c.nombre=:nombre</query>
+        </nq>
+        <nq e="false" name="Cliente.findByIdentificacion">
+            <query>Select c from Cliente c where c.identificacion=:identificacion</query>
+        </nq>
+        <nq e="false" name="Cliente.findByEmail">
+            <query>Select c from Cliente c where c.Email=:Email</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="FacturaPK" abs="false" class="Factura" v="true" jbn="false" xre="false" m="false" rootElement="_16382210788801" id="_16382211120159">
+        <ath>CristianFonseca</ath>
+        <attributes>
+            <basic attribute-type="int" v="true" xvt="" name="cantidad" id="_163822183986424">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="float" v="true" xvt="" name="total" id="_163822184515225">
+                <xwm/>
+                <xm/>
+            </basic>
+            <one-to-one own="true" orp="false" optional="true" primaryKey="false" connected-entity-id="_164012557340512" v="true" xvt="" name="compra" id="_164020093893733">
+                <xwm/>
+                <xm/>
+            </one-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_163822111201510">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="AUTO"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Factura.findAll">
+            <query>Select e from Factura e</query>
+        </nq>
+        <nq e="false" name="Factura.findByNombre">
+            <query>Select f from Factura f where f.nombre=:nombre</query>
+        </nq>
+        <nq e="false" name="Factura.findByIdentificacion">
+            <query>Select f from Factura f where f.identificacion=:identificacion</query>
+        </nq>
+        <nq e="false" name="Factura.findByProducto">
+            <query>Select f from Factura f where f.producto=:producto</query>
+        </nq>
+        <nq e="false" name="Factura.findByCantidad">
+            <query>Select f from Factura f where f.cantidad=:cantidad</query>
+        </nq>
+        <nq e="false" name="Factura.findByTotal">
+            <query>Select f from Factura f where f.total=:total</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="ProductoPK" abs="false" class="Producto" v="true" jbn="false" xre="false" m="false" rootElement="_16382210788801" id="_163822111369512">
+        <ath>CristianFonseca</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="nombre" id="_163822185227226">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="int" v="true" xvt="" name="cantidad" id="_163822186715227">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="float" v="true" xvt="" name="precio" id="_163822188949628">
+                <xwm/>
+                <xm/>
+            </basic>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_163822111369613">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="AUTO"/>
+            </id>
+        </attributes>
+        <nq e="false" name="nombre.findAll">
+            <query>Select e from nombre e</query>
+        </nq>
+        <nq e="false" name="Producto.findByNombre">
+            <query>Select p from nombre p where p.nombre=:nombre</query>
+        </nq>
+        <nq e="false" name="nombre.findByCantidad">
+            <query>Select p from nombre p where p.cantidad=:cantidad</query>
+        </nq>
+        <nq e="false" name="nombre.findByPrecio">
+            <query>Select p from nombre p where p.precio=:precio</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="CompraPK" abs="false" class="Compra" v="true" jbn="false" xre="false" m="false" rootElement="_16382210788801" id="_164012557340512">
+        <ath>CristianFonseca</ath>
+        <attributes>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_16382211071363" v="true" xvt="" name="cliente" id="_164017564639727">
+                <xwm/>
+                <xm/>
+            </many-to-one>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_163822111369512" v="true" xvt="" name="producto" id="_164018081538529">
+                <xwm/>
+                <xm/>
+            </many-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_164012557343513">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Compra.findAll">
+            <query>Select e from Compra e</query>
+        </nq>
+    </entity>
+    <c>
+        <ct>java.util.List</ct>
+        <ct>java.util.Set</ct>
+        <ct>java.util.Map</ct>
+        <ct>java.util.Collection</ct>
+        <cit>java.util.ArrayList</cit>
+        <cit>java.util.LinkedList</cit>
+        <cit>java.util.HashSet</cit>
+        <cit>java.util.TreeSet</cit>
+        <cit>java.util.HashMap</cit>
+    </c>
+    <wsl>
+        <ws n="Main" id="_16382210788802">
+            <i ref="_16382211120159" x="108" y="355"/>
+            <i ref="_16382211071363" x="96" y="214"/>
+            <i ref="_163822111369512" x="301" y="368"/>
+            <i ref="_164012557340512" x="263" y="88"/>
+        </ws>
+    </wsl>
+</entity-mappings>
